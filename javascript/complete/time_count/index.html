@@ -1,0 +1,175 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>タイムカウント</title>
+	<link rel="stylesheet" href="styles.css" type="text/css" media="screen" >
+	<script src = "main.js"></script>
+</head>
+<body>
+<form id="form" method="post">
+	今日の製造個数<br>
+	<input type="number" class="per auto_copy" id="total_num" value="" style="width:100px;"/>個/
+	<input type="number" class="persons auto_copy" id="persons" value="" style="width:30px;"/>箇所<br/>
+	<hr/>
+	<table id="edit">
+		<tr class="quotation">
+			<td>①
+				<select name="select" id="create_hour" class="num">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>時間
+			</td>
+			<td>
+				<select name="select" id="create_min" class="num">
+					<option value="00">00</option>
+					<option value="0.5">30</option>
+				</select>分で作り終えます
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="計算" onclick="calc_1();" style="font-size:15px; font-size:15px; WIDTH:200px; HEIGHT:30px"/>
+	<br/><br/>
+	<table id="result" class="res_tbl">
+		<tr>
+			<td>目標個数(1人)</td><td><span id="per_per_p">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="hour_num_1">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1分)</td><td><span id="min_num_1">0</span>個</td>
+		</tr>
+		<!--
+		<tr>
+			<td>目標個数(1秒)</td><td><span id="sec_num_1"/>0</span>個</td>
+		</tr>
+		-->
+		<tr>
+			<td>目標秒数(1個)</td><td><span id="per_sec_1"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(6個)</td><td><span id="per_sec_m6"/>0</span>分<span id="per_sec_6"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(36個)</td><td><span id="per_sec_m36"/>0</span>分<span id="per_sec_36"/>0</span>秒</td>
+		</tr>
+	</table><br/>
+	<hr/>
+	
+	
+ 	<table id="edit">
+		<tr class="quotation">
+			<td>②
+				<select name="select" id="create_hour2" class="num">
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+				</select>時
+			</td>
+			<td>
+				<select name="select" id="create_min2" class="num">
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+				</select>分までに作り終えます。　
+			</td>
+			<td>休けい時間は<select name="select" id="break_min" class="num">
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+				<option value="60">60</option>
+			</select>分
+		</td>
+	</tr>
+
+	</table>
+	
+	<input type="button" value="計算" onclick="calc_2();" style="font-size:15px; font-size:15px; WIDTH:200px; HEIGHT:30px"/>
+	<br/><br/>
+	<table  align="left" id="result_2"  class="res_tbl">
+		<tr>
+			<td>目標個数(1人)</td><td><span id="result2">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="hour_num_2">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1分)</td><td><span id="min_num_2">0</span>個</td>
+		</tr>
+		<!--
+		<tr>
+			<td>目標個数(1秒)</td><td><span id="sec_num_2">0</span>個</td>
+		</tr>
+		-->
+		<tr>
+			<td>目標秒数(1個)</td><td><span id="per_sec_1_2"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(6個)</td><td><span id="per_sec_m6_2"/>0</span>分<span id="per_sec_6_2"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(36個)</td><td><span id="per_sec_m36_2"/>0</span>分<span id="per_sec_36_2"/>0</span>秒</td>
+			<td style="border: none" ><div id="printDiv"></div></td>
+		</tr>
+	</table>
+	<br style="clear: both;"><!-- clear:bothでfloatを解除 -->
+	<hr/>
+	
+	<table id="edit">
+		<tr class="quotation">
+			<td>③生産目安（1個）
+				<input type="number"  id="byo" value="" style="width:50px;"/>秒で製造すると
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="計算" onclick="calc_3();" style="font-size:15px; font-size:15px; WIDTH:200px; HEIGHT:30px"/>
+	<br/><br/>
+	<table id="result" class="res_tbl">
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="one_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)(6個)</td><td><span id="six_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)(36個)</td><td><span id="thirtysix_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)</td><td><span id="one_time_3">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)(6個)</td><td><span id="six_time_3">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)(36個)</td><td><span id="thirtysix_time_3">0</span>個</td>
+		</tr>
+	</table>
+</form>
+
+	
+
+</body>
+</html>

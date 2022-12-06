@@ -1,0 +1,19 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="bg">
+<h1 class="space">フィードバックを自由にお書きください</h1>
+<h5 class="space">送ってくださったフィードバックはデベロッパーのほうに送られ改善の参考とさせていただきます。</h5>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="formpost">
+        {% render_field form.title class="form-control" placeholder="問題を入力"%}
+    </div>
+    <div class="formpost">
+        {% render_field form.content class="form-control" placeholder="内容を入力"%}
+    </div>
+    <button class="btn btn-warning" type="submit">投稿する</button>
+</form>
+</div>
+{% endblock %}

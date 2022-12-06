@@ -1,0 +1,61 @@
+/* CSS Document */
+
+/*------------------------------------------------------------
+クリア
+------------------------------------------------------------*/
+.clear{ clear:both; }
+.clearfix:after{
+height:0px;
+visibility:hidden;
+display:block;
+clear:both;
+content:".";
+}
+
+
+/*------------------------------------------------------------
+共通
+------------------------------------------------------------*/
+
+html, body {height: 100%;} 
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: #FFF;
+  text-align: center;  
+
+}
+
+#login_logo {  width:100%; text-align:center; }
+
+#login_logo img { margin:50px 0 0 0;}
+
+/*------------------------------------------------------------
+ログインページ
+------------------------------------------------------------*/
+
+
+#login { width:600px; height:250px;
+ background:url(../img/login_back.gif) top left no-repeat;
+ margin:0 auto; padding:0px 0 0 0; font-size:14px;}
+
+#login table { margin:0 auto; padding:50px;  }
+
+
+/*------------------------------------------------------------
+3つの入口エンターページ
+------------------------------------------------------------*/
+
+#enterwrap  { width:820px; height:280px;
+ background:#ebebeb; margin:0 auto; }
+
+#enterwrap table { margin:0 auto; padding:40px 15px;  }
+
+.btn1 { width:250px; height:220px; background:url(../img/enter_01.gif) left top no-repeat; text-align:left; }
+.btn2 { width:250px; height:220px; background:url(../img/enter_02.gif) left top no-repeat; text-align:left; }
+.btn3 { width:250px; height:220px; background:url(../img/enter_03.gif) left top no-repeat; text-align:left; }
+
+.txt_01 { font-size:16px; font-weight:bold; color:#FFFFFF; padding:15px 0 0 15px; }
+.txt_02 { font-size:12px; font-weight:bold; color:#000000; padding:15px 0 15px 15px; }
+

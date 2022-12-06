@@ -1,0 +1,214 @@
+
+/*------------------------------------------------------------
+デフォルトスタイル
+------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,b, u, i, center, br, 
+dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td
+footer, header, hgroup, menu, nav, section, time, mark, audio, video{
+margin:0; padding:0; background:transparent; border:0; outline:0; font-size:14px; }
+
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary{ display:block; }
+
+dl, dt, dd, ol, ul, li{ list-style:none; margin:0; padding:0; }
+
+a{color:#0064BE; text-decoration:none;}
+a:hover{color:#319DFF;}
+
+img,abbr,acronym,fieldset { border: 0; }
+img{ border: none; vertical-align:top; }
+
+table, td, th { border:0; border-spacing:0; font-size:13px; }
+
+/*------------------------------------------------------------
+クリア
+------------------------------------------------------------*/
+.clear{ clear:both; }
+.clearfix:after{height:0px;visibility:hidden;display:block;clear:both;content:"."; }
+.clearfix { min-height:1px; } /*IE6、7対策�΍�*/
+* html .clearfix {height: 1px;height: auto; overflow: hidden; /*\*//*/ /*MAC IE5.x�΍�*/ }
+
+
+
+/* ページ全体スペース＆h1～================================ */
+
+#frame_top { margin:10px; }
+#frame_bottom { margin:15px 0 10px 0; }
+
+#hojyo_search { background:#FFFEE1; width:100%; padding:0; margin:0; }
+#hojyo_search_bot { padding:10px 10px 20px 10px; }
+#hjyo_search_results { padding:10px 0px 40px 0px; }
+
+.b_green { background: #D0F7C8; }
+.b_blue { background: #CBF2FC; }
+.b_purple { background: #dfe7fa; }
+
+
+p { font-size:14px; line-height:160%; }
+
+h1 { font-size:18px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; }
+
+#frame_bottom h2 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 10px 0; background:#F0F0F0; width:95%; }
+
+#frame_bottom h3 { font-size:14px; padding:0 0 0px 6px; border-left:solid 6px #FFCC33; margin:20px 0 10px 0; }
+
+
+.t_read { font-size:16px; color:#F30; line-height:160%; }
+.t_read_s { font-size:14px; color:#F30; line-height:160%; }
+
+
+#master { margin:0; }
+#master h1 { font-size:18px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; }
+#master h1 a { font-size:18px; text-decoration:underline; }
+#hojyo h1 a { font-size:18px; text-decoration:underline; }
+#master h1.pan { font-size:14px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; font-weight:normal; }
+#hojyo h1.pan { font-size:16px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; font-weight:normal; }
+#master h1 em { font-size:16px; font-style:normal; font-weight:bold; color:#333; }
+#hojyo h1 em { font-size:16px; font-style:normal; font-weight:bold; color:#333; }
+#master h2 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 10px 0; background:#F0F0F0; width:95%; }
+#master h3 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 20px 0; background:#FFEDDD; width:95%; color:#333; }
+#hojyo h3 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 20px 0; background:#FFEDDD; width:95%; color:#333; }
+.menuname { font-weight:bold; padding:8px 0 8px 8px; margin:20px 0 10px 0; width:500px; background:#FFFDF0;
+border-left:solid 6px #FFCC33;
+border-top:1px solid #ddd;
+border-right:1px solid #ddd;
+border-bottom:1px solid #ddd;
+}
+
+
+#master_sub { margin:0; }
+#master_sub h1 { font-size:18px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; }
+#master_sub h1 a { font-size:18px; text-decoration:underline; }
+#master_sub h1.pan { font-size:14px; border-left:solid 6px #666666; padding-left:10px; margin:0 0 20px 0px; font-weight:normal; }
+#master_sub h1 em { font-size:16px; font-style:normal; font-weight:bold; color:#333; }
+#master_sub h2 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 10px 0; background:#F0F0F0; width:95%; }
+#master_sub h3 { font-size:16px; border-top:#CCC solid 2px; padding:10px 0 10px 10px ; margin:30px 0 20px 0; background:#FFEDDD; width:95%; color:#333; }
+
+/* table======================================================================================================== */
+
+
+/* gyomu-master */
+#masterday  {  }
+#masterday th { text-align:left; border-bottom:solid 3px #ccc; color:#0C610C; }
+#masterday td { padding:10px 0 10px 0px; border-bottom:solid 1px #999; }
+#masterday .cel_th  { border-bottom:solid 3px #ccc; color:#0C610C; text-align:right; font-weight:bold; }
+
+/* セルalign指定 */
+.cel_r { text-align:right; }
+
+
+/* frame上 セルpadding指定 */
+.s_1 { padding:0 20px 12px 0; text-align:left; }
+.s_2 { padding:0 40px 15px 0; text-align:left; font-size:16px; letter-spacing:1px; } /* 補助金処理search */
+.s_3 { padding:0 50px 24px 0; text-align:left; font-size:15px; letter-spacing:1px; } /* 補助金処理search results */
+.s_4 { padding:0 10px 15px 0; text-align:left; font-size:16px; letter-spacing:1px; line-height:160%; } /* 補助金処理search check */
+.s_5 { padding:0 40px 12px 0; text-align:left; }
+
+/* frame下 検索結果一覧*************************************************** */
+
+/* 普通タイプ ラジオボタンアリ */
+.tstyle_1 th { font-size:12px; background:#CCC; padding:3px 0; text-align:left; font-weight:normal; }
+.tstyle_1 td { font-size:13px; border-bottom:solid 1px #aaa; padding:2px 0; }
+
+/* th2段 下borderのみアリ */
+.tstyle_4 th { font-size:12px; background:#CCC; padding:3px; font-weight:normal; border-bottom:solid 1px #aaa; }
+.tstyle_4 td { font-size:13px; border-bottom:solid 1px #aaa; padding:5px 3px 5px 3px; }
+
+/* 普通タイプ */
+.tstyle_5 th { font-size:12px; background:#CCC; padding:3px; font-weight:normal; text-align:left; }
+.tstyle_5 td { font-size:13px; border-bottom:solid 1px #aaa; padding:5px 3px 5px 3px; }
+
+/* 普通タイプ align:centert */
+.tstyle_10 th { font-size:12px; background:#CCC; padding:3px; font-weight:normal; text-align:center; }
+.tstyle_10 td { font-size:13px; border-bottom:solid 1px #aaa; padding:5px 3px 5px 3px; text-align:center; }
+
+/* 普通タイプ padding多め */
+.tstyle_9 th { font-size:12px; background:#CCC; padding:5px; font-weight:normal; text-align:left; }
+.tstyle_9 td { font-size:13px; border-bottom:solid 1px #aaa; padding:8px 3px 8px 3px; letter-spacing:1px; }
+
+/* th2段 横borderアリ */
+.tstyle_6 th { font-size:12px; background:#CCC; padding:3px; font-weight:normal; border-bottom:solid 1px #aaa; border-left:solid 1px #aaa; }
+.tstyle_6 td { font-size:13px; border-bottom:solid 1px #aaa; padding:5px 3px 5px 3px; }
+
+/* 普通タイプ　文字サイズ大 */
+.tstyle_7 th { font-size:14px; background:#CCC; padding:3px; font-weight:normal; text-align:left; letter-spacing:1px;}
+.tstyle_7 td { font-size:14px; border-bottom:solid 1px #aaa; padding:5px 3px 5px 3px; }
+
+/* thが左タイプ　文字サイズ大 */
+.tstyle_8 th { font-size:14px; background:#CCC; padding:5px; font-weight:normal; text-align: center; border-bottom:1px solid #FFFFFF; letter-spacing:1px;}
+.tstyle_8 td { font-size:14px; padding:10px 3px 10px 5px; letter-spacing:1px; }
+
+/* th center 下borderのみアリ 文字大 */
+.tstyle_11 th { font-size:14px; background:#CCC; padding:4px; font-weight:normal; letter-spacing:1px; }
+.tstyle_11 td { font-size:14px; border-bottom:solid 1px #aaa; padding:6; letter-spacing:1px; }
+
+
+
+/* frame下 検索詳細ページ */
+
+.tstyle_2 table { }
+.tstyle_2 td { font-size:14px; padding:5px 20px 10px 0; }
+.tstyle_2 em { font-style:normal; color: #DB0000; }
+em { font-style:normal; color: #DB0000; }
+
+.tstyle_3 table { }
+.tstyle_3 th { font-size:13px; padding:5px 20px 5px 0; border-bottom:solid 1px #bbb; text-align:left; font-weight:normal; }
+.tstyle_3 td { font-size:13px; padding:5px 20px 5px 0; border-bottom:solid 1px #bbb; color: #DB0000; }
+
+/* 補助金申請履歴　年度セル */
+
+.col_01 { background:#F7FFD7; font-weight:bold; color:#C00; }
+
+
+
+/* 検索ボタン======================================================================================================== */
+
+#btn { width:100%; border-top: #fff solid 1px; padding:10px 0 0 0 ; }
+
+
+/* FRAME下　説明ページ================================ */
+
+#frame_bottom dl { margin:10px 0 0 0; width:95%; }
+#frame_bottom dt { font-weight:bold; border-left:solid 6px #FFCC33; padding-left:8px; }
+#frame_bottom dd { padding:8px 0 8px 0; border-bottom:#666 dashed 1px; margin:0 0 12px 0; line-height:160%; }
+
+
+/* 補助金処理　input文字サイズ指定 */
+
+.inp_1 { font-size:100%; }
+select.inp_1 { font-size:100%; }
+
+
+/* font color================================ */
+
+.f_green { color:#0C610C; }
+.f_red {color: #EA0000; }
+.f_blue { color: #001DE8; }
+
+.f_blue_h { color:#001DE8; font-size:16px; letter-spacing:1px; font-weight:bold; } /* 補助金処理search results */
+.f_h { font-size:16px; letter-spacing:1px; } /* 補助金処理search results */
+
+
+
+/*------------------------------------------------------------
+マージン
+------------------------------------------------------------*/
+.m0 { margin:0px; padding:0px; }
+.mt5 { margin:5px 0px 0px 0px; } 
+.mt10 { margin:10px 0px 0px 0px; }
+.mt15 { margin:15px 0px 0px 0px; }
+.mt20 { margin:20px 0px 0px 0px; }
+
+.mb5 { margin:0px 0px 5px 0px; }
+.mb10 { margin:0px 0px 10px 0px; }
+.mb15 { margin:0px 0px 15px 0px; }
+.mb20 { margin:0px 0px 20px 0px; }
+
+.mbt20 { margin:20px 0px; }
+
+
+
+

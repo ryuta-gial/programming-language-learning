@@ -1,0 +1,40 @@
+.App {
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 100px;
+  }
+
+  .App-Column {
+    flex-direction: column;
+  }
+
+  .login-container {
+    width: 400px;
+  }
+
+  .form {
+    display: flex;
+    border: 1px solid #ddd;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  input {
+    margin: 15px 0;
+    padding: 10px;
+  }
+
+  .submit {
+    padding: 10px;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+  }

@@ -1,0 +1,15 @@
+services:
+    db:
+        image: postgres
+        restart: always
+        container_name: quiz_app
+        build:
+            context: docker
+            dockerfile: Dockerfile.postgres
+        environment:
+            - "POSTGRES_HOST_AUTH_METHOD=trust"
+        ports:
+            - 5432:5432
+        volumes:
+            - ./db/postgres:/var/lib/postgres
+            #- ./db/init:/docker-entrypoint-initdb.d

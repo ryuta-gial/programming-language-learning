@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script type="text/javascript">
+
+
+            function go() {
+                //jsonオブジェクト値の記述
+                var x = '{"friends":[' +
+                        '{"firstName":"lost","lastName":"Cena"},' +
+                        '{"firstName":"Aie","lastName":"heights"},' +
+                        '{"firstName":"John","lastName":"Alfa"}]}';
+
+                var y = eval("(" + x + ")");
+
+                /*
+                 * コメントアウトしたものだけで動く
+                 var jsonobject = {
+                 "name":"John",
+                 "age":"33",
+                 "phone":"34535533",
+                 "movies":[
+                 {'name':'lost','age':'54'},
+                 {'name':'rocky','age':'34'},
+                 {'name':'terminator','age':'22'}
+                 ]
+                 */
+
+                /*
+                 document.getElementById('name').innerHTML=jsonobject.name;
+                 document.getElementById('age').innerHTML=jsonobject.age;
+                 document.getElementById('phone').innerHTML=jsonobject.phone;
+                 alert(jsonobject.movies[2].name);    
+                 */
+                document.getElementById('name').innerHTML = y.friends[2].firstName;
+                document.getElementById('lastname').innerHTML = y.friends[2].lastName;
+                //alert(jsonobject.movies[2].name);
+            }
+        </script>
+        <title>Document</title>
+    </head>
+    <body>
+        Name:<div id="name"></div><br>
+        Last Name:<div id="lastname"></div><br>
+        <!--
+         Age<div id="age"></div><br>
+         Phone<div id="phone"></div><br>
+        -->
+        <input type="button" value="go" onclick="go()"/>
+
+    </body>
+
+</html>
+

@@ -1,0 +1,17 @@
+{% extends "app/base.html"%}
+{% load static %}
+{% block content %}
+    <div class="bg">
+        <h1 class="space">ありあほす語公式ドキュメントへようこそ</h1>
+        <h3>お知らせ</h3>
+        {% for post in post_data %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{ post.content | truncatechars:100 }}</p>
+            </div>
+            <div class="card-footer text-muted">{{ post.created | date }} </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,380 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>コロット製造時間計算</title>
+	<meta name="viewport" content="width=device-width,
+ initial-scale=1.0,user-scalable=yes" />
+	<meta name="robots" content="noindex,nofollow" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="/js/jquery.timepicker.min.js"></script>
+	<link href="/js/jquery.timepicker.css" rel="stylesheet" />
+	<link rel="stylesheet" href="<$SERVER_NAME_HTTP$>/css/manage.css" />
+	<style type="text/css">
+		body{
+			margin:12px;
+			font-size:16px
+		}
+		div,td,span{
+			font-size:16px
+		}
+		.res_tbl td{
+			padding:4px 20px;
+			border: 1px #808080 solid;
+			border-collapse: collapse;
+			border-spacing : 0px;
+		}
+
+		.res_tbl{
+			border-collapse: collapse;
+			border-spacing : 0px;
+		}
+
+	</style>
+	<script>
+		Number.prototype.num_format = function() {
+			if(isNaN(this)|| this == 'Infinity'){return 0;}
+			var r = "";
+			var t = this.toString().split('.');
+			var s = t[0].split("").reverse();
+			var a = t[1];
+			for(var i = 0; i < s.length; i++) {
+				if(i % 3 == 0 && i != 0 && s[i] != "-") {
+					r = s[i] + "," + r
+				} else {
+					r = s[i] + r;
+				}
+			}
+			return a ? r + '.' + a : r;
+		};
+
+		$(window).load(function(){
+			$('#timepickerDemo02').timepicker({
+				timeFormat: 'H:i',
+	//            minTime: new Date(0, 0, 0, 9, 0, 0),
+				maxTime: new Date(0, 0, 0, 22, 0, 0),
+	//            startHour: 6,
+	//            startTime: new Date(0, 0, 0, 8, 20, 0),
+				step: 5,
+				scrollDefault: 'now'
+			});
+		});
+	</script>
+	<script>
+		$(function(){
+			var nowDate = new Date();
+			//console.log(numNow)
+			year = nowDate.getFullYear();
+			moth = nowDate.getMonth()+1;
+			day = nowDate.getDate();
+			hour = nowDate.getHours();//時
+			minute = nowDate.getMinutes();//秒
+			$('#printDiv').text('現在の時刻は'+ hour +'時'+ minute +'分です');
+
+			$('.auto_copy').blur(function(){
+				if($('#total_num').val()){
+					var value = toInt($('#total_num').val());
+					$('#copy_num').html(Number(value).num_format());
+				}
+				if($('#persons').val()){
+					var value = toInt($('#persons').val());
+					$('#copy_person').html(Number(value).num_format());
+				}
+			});
+			$('.auto_copy').blur(function(){
+				if($('#total_num').val()){
+					var value = toInt($('#total_num').val());
+					$('#copy_num2').html(Number(value).num_format());
+				}
+				if($('#persons').val()){
+					var value = toInt($('#persons').val());
+					$('#copy_person2').html(Number(value).num_format());
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<form id="form" method="post">
+	今日の製造個数<br><input type="number" class="per auto_copy" id="total_num" value="" style="width:100px;"/>個/
+	作り<input type="number" class="persons auto_copy" id="persons" value="" style="width:30px;"/>かしょ<br/>
+	<hr/>
+	<table id="edit">
+		<tr class="quotation">
+			<td>
+				①<$hour$>時<$minute$>分に作り終えます。
+			</td>
+		</tr>
+		<tr>
+			<td>（休けい時間は<select name="select" id="break_min" class="num">
+				<option value="00">00</option>
+				<option value="15">15</option>
+				<option value="30">30</option>
+				<option value="45">45</option>
+				<option value="60">60</option>
+			</select>分です）</td>
+		</tr>
+		<tr>
+			<td>
+			<input type="button" value="計算" onclick="calc_2();"style="font-size:15px;WIDTH: 200px; HEIGHT: 30px"/>
+			</td>
+		</tr>
+		<tr><td style="border: none" ><div id="printDiv"></div></td></tr>
+	</table>
+	<span id="over_time"></span><br/>
+	<table  align="left" id="result_2"  class="res_tbl">
+		<tr>
+			<td>目標個数(1人)</td><td><span id="result">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="hour_num_2">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1分)</td><td><span id="min_num_2">0</span>個</td>
+		</tr>
+		<!--
+		<tr>
+			<td>目標個数(1秒)</td><td><span id="sec_num_2">0</span>個</td>
+		</tr>
+		-->
+		<tr>
+			<td>目標秒数(1個)</td><td><span id="per_sec_2"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(6個)</td><td><span id="per_sec_2_m6"/>0</span>分<span id="per_sec_2_6"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(36個)</td><td><span id="per_sec_2_m36"/>0</span>分<span id="per_sec_2_36"/>0</span>秒</td>
+			<td style="border: none" ><div id="printDiv"></div></td>
+		</tr>
+	</table>
+	<br style="clear: both;"><!-- clear:bothでfloatを解除 -->
+	<hr/>
+	製造個数<span id="copy_num">0</span>個/
+	作り<span id="copy_person">0</span>かしょ<br/>
+	<table id="edit">
+		<tr class="quotation">
+			<td>②
+				<select name="select" id="create_hour" class="num">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>時間
+			</td>
+			<td>
+				<select name="select" id="create_min" class="num">
+					<option value="00">00</option>
+					<option value="0.5">30</option>
+				</select>分で作り終えます
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="計算" onclick="calc_1();" style="font-size:15px; font-size:15px; WIDTH:200px; HEIGHT:30px"/>
+	<br/><br/>
+	<table id="result" class="res_tbl">
+		<tr>
+			<td>目標個数(1人)</td><td><span id="per_per_p">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="hour_num_1">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1分)</td><td><span id="min_num_1">0</span>個</td>
+		</tr>
+		<!--
+		<tr>
+			<td>目標個数(1秒)</td><td><span id="sec_num_1"/>0</span>個</td>
+		</tr>
+		-->
+		<tr>
+			<td>目標秒数(1個)</td><td><span id="per_sec_1"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(6個)</td><td><span id="per_sec_m6"/>0</span>分<span id="per_sec_6"/>0</span>秒</td>
+		</tr>
+		<tr>
+			<td>目標秒数(36個)</td><td><span id="per_sec_m36"/>0</span>分<span id="per_sec_36"/>0</span>秒</td>
+		</tr>
+	</table><br/>
+	<hr/>
+	製造個数<span id="copy_num2">0</span>個/
+	作り<span id="copy_person2">0</span>かしょ<br/>
+	<table id="edit">
+		<tr class="quotation">
+			<td>③生産目安（1個）
+				<$time$>秒で製造すると
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="計算" onclick="calc_3();" style="font-size:15px; font-size:15px; WIDTH:200px; HEIGHT:30px"/>
+	<br/><br/>
+	<table id="result" class="res_tbl">
+		<tr>
+			<td>目標個数(1時間)</td><td><span id="one_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)(6個)</td><td><span id="six_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(1時間)(36個)</td><td><span id="thirtysix_time">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)</td><td><span id="one_time_3">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)(6個)</td><td><span id="six_time_3">0</span>個</td>
+		</tr>
+		<tr>
+			<td>目標個数(3時間)(36個)</td><td><span id="thirtysix_time_3">0</span>個</td>
+		</tr>
+	</table>
+</form>
+<script type="text/javascript">
+function toInt(val){
+	var mai = parseInt(val);
+	if(isNaN(mai)){mai = 0;}
+	return mai;
+}
+function calc_1(){
+	var total_num = toInt($('#total_num').val()); //クレープ総個数
+	var persons   = toInt($('#persons').val());   //つくる人数
+	var hours   = toInt($('#create_hour').val()); //時間
+	var min     =($('#create_min').val());//分
+	var lhours = (hours)+(min * 10) / 10;
+	var per_per =(total_num / persons);
+	var per_hour = (total_num / persons / lhours);//四捨五入
+	var per_min  = (per_hour / 60);
+	var per_sec  = (per_min / 60);
+	var per_num  = (1/per_sec);
+
+	var per_num_s6  = (per_num * 6);
+	var per_num_6  = (per_num * 6 % 60);
+	var per_num_m6 = (per_num_s6 % 3600 / 60 |0);
+
+	var per_num_s36  = (per_num * 36);
+	var per_num_36  = (per_num * 36 % 60);
+	var per_num_m36  = (per_num_s36 % 3600 / 60 |0);
+
+	var fixed_per_per = per_per.toFixed(1);
+	var fixed_per_sec = per_sec.toFixed(1);
+	var fixed_per_min = per_min.toFixed(1);
+	var fixed_per_hour = per_hour.toFixed(0);
+	var fixed_per_num = per_num.toFixed(1);
+	var fixed_per_num_6 = per_num_6.toFixed(1);
+	var fixed_per_num_m6 = per_num_m6.toFixed(1);
+	var fixed_per_num_36 = per_num_36.toFixed(1);
+	var fixed_per_num_m36 = per_num_m36.toFixed(1);
+
+
+	$('#per_per_p').html(Number(fixed_per_per).num_format());
+	$('#hour_num_1').html(Number(fixed_per_hour).num_format());
+	$('#min_num_1').html(Number(fixed_per_min).num_format());
+	$('#sec_num_1').html(Number(fixed_per_sec).num_format());
+	$('#per_sec_1').html(Number(fixed_per_num).num_format());
+	$('#per_sec_6').html(Number(fixed_per_num_6).num_format());
+	$('#per_sec_m6').html(Number(fixed_per_num_m6).num_format());
+	$('#per_sec_36').html(Number(fixed_per_num_36).num_format());
+	$('#per_sec_m36').html(Number(fixed_per_num_m36).num_format());
+
+	return;
+}
+
+function calc_2(){
+	var hour   = toInt($('[name="hour"]').val());
+	var minute = toInt($('[name="minute"]').val());
+	var break_min   = toInt($('#break_min').val()); //休憩時間
+	var nowDate = new Date();
+	var now_time = nowDate.getTime();//現在の日次を秒に"2013/01/23 12:34"
+	var today = ''+nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
+	var goal_time = new Date(today+' '+hour+':'+minute).getTime();//後何時間を秒に変換
+	var b_min =(break_min * 60 * 1000);   // 休憩時間をミリ秒に
+	var goal_time = toInt(goal_time);
+	var sub_sec = goal_time - now_time - b_min ;
+	// 差のミリ秒を、日数・時間・分・秒に分割
+	//var dDays = tes / ( 1000 * 60 * 60 * 24 );   // 日数
+	//diff2Dates = tes % ( 1000 * 60 * 60 * 24 );
+	var dHour = sub_sec / ( 1000 * 60 * 60  );   // 時間
+	var dMin = sub_sec / ( 1000 * 60 );// 分
+	var dSec = sub_sec / 1000;// 秒
+
+	if( sub_sec < 0) {
+		msg = "指定した時刻は過ぎました。";
+		$("#over_time").html(msg);
+	}else{
+		$("#over_time").html('');
+		var total_num = toInt($('#total_num').val()); //クレープ総個数
+		var persons   = toInt($('#persons').val());   //つくる人数
+		var result = total_num/persons;
+
+		var per_sec = (result/ dSec);
+		var per_min = (result / dMin);
+		var per_hour = (result / dHour);
+		var per_num  = (1/per_sec);
+
+		var per_num_s6  = (per_num * 6);
+		var per_num_6  = (per_num * 6 % 60);
+		var per_num_m6 = (per_num_s6 % 3600 / 60 |0);
+
+		var per_num_s36  = (per_num * 36);
+		var per_num_36  = (per_num * 36 % 60);
+		var per_num_m36  = (per_num_s36 % 3600 / 60 |0);
+
+		var fixed_result = result.toFixed(1);
+		var fixed_per_sec = per_sec.toFixed(1);
+		var fixed_per_min = per_min.toFixed(1);
+		var fixed_per_hour = per_hour.toFixed(0);
+		var fixed_per_num = per_num.toFixed(1);
+		var fixed_per_num_6 = per_num_6.toFixed(1);
+		var fixed_per_num_m6 = per_num_m6.toFixed(1);
+		var fixed_per_num_36 = per_num_36.toFixed(1);
+		var fixed_per_num_m36 = per_num_m36.toFixed(1);
+
+		$('#result').html(Number(fixed_result).num_format());
+		$('#min_num_2').html(Number(fixed_per_min).num_format());
+		$('#sec_num_2').html(Number(fixed_per_sec).num_format());
+		$('#per_sec_2').html(Number(fixed_per_num).num_format());
+		$('#per_sec_2_6').html(Number(fixed_per_num_6).num_format());
+		$('#per_sec_2_m6').html(Number(fixed_per_num_m6).num_format());
+		$('#per_sec_2_36').html(Number(fixed_per_num_36).num_format());
+		$('#per_sec_2_m36').html(Number(fixed_per_num_m36).num_format());
+	}
+	return;
+}
+
+function calc_3(){
+	var total_num = toInt($('#total_num').val()); //クレープ総個数
+	var persons   = toInt($('#persons').val());   //つくる人数
+	var time      = toInt($('[name="time"]').val());
+	var one_time  = (3600 / time);
+	var one_time_3  = (10800 / time);
+	var six_time  = (one_time * 6);
+	var six_time_3  = (one_time_3 * 6);
+	var thirtysix_time  =(one_time * 36);
+	var thirtysix_time_3  =(one_time_3 * 36);
+
+	var fixed_thirtysix_time = parseInt(thirtysix_time);
+	var fixed_six_time = parseInt(six_time);
+	var fixed_one_time = parseInt(one_time);
+	var fixed_thirtysix_time_3 = parseInt(thirtysix_time_3);
+	var fixed_six_time_3 = parseInt(six_time_3);
+	var fixed_one_time_3 = parseInt(one_time_3);
+
+	$('#six_time').html(Number(fixed_six_time).num_format());
+	$('#one_time').html(Number(fixed_one_time).num_format());
+	$('#thirtysix_time').html(Number(fixed_thirtysix_time).num_format());
+	$('#six_time_3').html(Number(fixed_six_time_3).num_format());
+	$('#one_time_3').html(Number(fixed_one_time_3).num_format());
+	$('#thirtysix_time_3').html(Number(fixed_thirtysix_time_3).num_format());
+
+	return;
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* CSS Document */
+
+/*------------------------------------------------------------
+デフォルトスタイル
+------------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, br, 
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+footer, header, hgroup, menu, nav, section, time, mark, audio, video{
+margin:0; padding:0; background:transparent;
+border:0; outline:0;
+font-size:13px;
+}
+
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary{
+display:block; }
+
+dl, dt, dd, ol, ul, li{ list-style:none; margin:0; padding:0; }
+
+a{color:#0064BE; text-decoration:none;}
+a:hover{color:#319DFF;}
+
+
+
+
+img,abbr,acronym,fieldset { border: 0; }
+img{ border: none; vertical-align:top; }
+
+table, td, th { border:0; border-spacing:0; }
+
+/*------------------------------------------------------------
+クリア
+------------------------------------------------------------*/
+.clear{ clear:both; }
+.clearfix:after{
+height:0px;
+visibility:hidden;
+display:block;
+clear:both;
+content:".";
+}
+.clearfix { min-height:1px; } /*IE6、7対策�΍�*/
+* html .clearfix {
+height: 1px;
+height: auto; overflow: hidden; /*\*//*/ /*MAC IE5.x�΍�*/
+}
+
+
+/*------------------------------------------------------------
+レイアウト
+------------------------------------------------------------*/
+
+body { background:#FFFFFF; color: #222;  text-align:left;  }
+
+html,body { height:100%; } /*高さフル*/
+
+#wrapper { width:100%; text-align: left;
+height:100%; min-height: 100%;　/*高さフル*/ }
+
+body > #wrapper #contents #cont #iframeBlock { height: auto; }/*高さフル*/
+
+#wrapper { width:100%; height: 100%; min-height:100%; position: relative; height: auto !important; }
+
+#headerwrap { width:100%; background:#282828; }
+#header { width:90%; margin:0 auto; }
+#header_b { width:100%; height:12px; background:#0094D3; }
+#header_g { width:100%; height:12px; background:#3D9A0E; }
+#header_o { width:100%; height:12px; background:#EE8A00; }
+
+
+#contents { width:90%; margin:0 auto; padding-bottom: 100px; }
+
+#footer_b { position:absolute; bottom:0; width:100%; height:20px; background:#0094D3; }
+#footer_g { position:absolute; bottom:0; width:100%; height:20px; background:#3D9A0E; }
+#footer_o { position:absolute; bottom:0; width:100%; height:20px; background:#EE8A00; }
+
+
+
+/*------------------------------------------------------------
+ヘッダータブ設定
+------------------------------------------------------------*/
+
+#header ul { list-style:none; margin:0px; padding:10px 0 0 0; }
+#header ul li { float:left; text-decoration:none; overflow:hidden; display:block; margin:0 2px 0 0; padding:0;
+				text-align:center; color:#FFFFFF; font-weight:bold;}
+
+#blue #menu01 a { width:230px; height:25px; background:url(../img/tab_blue.gif) left top no-repeat; display:block; margin:0; }
+#blue #menu02 a { width:230px; height:20px; background:url(../img/tab_green.gif) left top no-repeat; display:block; margin:10px 0 0 0;}
+#blue #menu03 a { width:230px; height:20px; background:url(../img/tab_orange.gif) left top no-repeat; display:block; margin:10px 0 0 0;}
+
+#green #menu01 a { width:230px; height:20px; background:url(../img/tab_blue.gif) left top no-repeat; display:block; margin:10px 0 0 0; }
+#green #menu02 a { width:230px; height:25px; background:url(../img/tab_green.gif) left top no-repeat; display:block; margin:0;}
+#green #menu03 a { width:230px; height:20px; background:url(../img/tab_orange.gif) left top no-repeat; display:block; margin:10px 0 0 0;}
+
+#orange #menu01 a { width:230px; height:20px; background:url(../img/tab_blue.gif) left top no-repeat; display:block; margin:10px 0 0 0; }
+#orange #menu02 a { width:230px; height:20px; background:url(../img/tab_green.gif) left top no-repeat; display:block; margin:10px 0 0 0;}
+#orange #menu03 a { width:230px; height:25px; background:url(../img/tab_orange.gif) left top no-repeat; display:block; margin:0;}
+
+
+/*------タブ共通設定----------------------*/
+ 
+#menu01 a,#menu02 a,#menu03 a { color:#FFFFFF; }
+
+/*--メインのタブ--*/
+#blue #menu01 a,#green #menu02 a,#orange #menu03 a { font-size:16px; padding:10px 0 0 0; }
+
+/*--サブタブ--*/
+#blue #menu02 a,#blue #menu03 a,
+#green #menu01 a,#green #menu03 a,
+#orange #menu01 a,#orange #menu02 a 
+{ font-size:13px; padding:5px 0 0 0;}
+ 
+#menu01 a:hover,#menu02 a:hover,#menu03 a:hover{ 
+opacity:0.8;
+filter:alpha(opacity=80);
+-ms-filter: "alpha( opacity=80 )";} 
+
+/*------サブメニュー（背景グレーの所）設定----------------------*/
+
+#submenuwrap { width:100%; background:#dfdfdf; }
+#submenu { width:90%; margin:0 auto; }
+
+#submenu ul { list-style:none; margin:0px; padding:15px 0; }
+#submenu ul li { float:left; text-decoration:none; overflow:hidden; display:block; margin:0 40px 0 0; padding:0 0 0 18px; 
+				background:url(../img/sub_icon.gif) left center no-repeat;
+				text-align:center; font-size:13px; font-weight:bold;}
+ 
+#submenu ul li a { color:#444444; }
+#submenu ul li a:hover { color:#888888; }
+
+em.blue { font-size:16px; font-style:normal; font-weight:bold; color:#0094D3;}
+em.green { font-size:16px; font-style:normal; font-weight:bold; color: #3D9A0E;}
+em.orange { font-size:16px; font-style:normal; font-weight:bold; color: #EE8A00;}
+ 
+ /*------------------------------------------------------------
+メニューページ
+------------------------------------------------------------*/
+
+.subtitle { font-size:12px; color:#222222; font-weight:bold; padding:30px 0 10px 0;}
+
+ul .btn_blue {}
+.btn_blue li a { background:url(../img/btn_blue.gif) left top no-repeat; display:block; width:700px; height:40px;
+font-size:16px; font-weight:bold; color:#0082ba; padding:13px 0 0 15px;}
+
+ul .btn_green {}
+.btn_green li a { background:url(../img/btn_green.gif) left top no-repeat; display:block; width:700px; height:40px;
+font-size:16px; font-weight:bold; color: #3d9a0e; padding:13px 0 0 15px;}
+
+ul .btn_orange {}
+.btn_orange li a { background:url(../img/btn_orange.gif) left top no-repeat; display:block; width:700px; height:40px;
+font-size:16px; font-weight:bold; color:#ff9400; padding:13px 0 0 15px;}
+
+.btn_blue li a:hover,.btn_green li a:hover,.btn_orange li a:hover{ 
+opacity:0.6;
+filter:alpha(opacity=60);
+-ms-filter: "alpha( opacity=60 )";} 
+
+
+ /*------------------------------------------------------------
+IFRAME関連
+------------------------------------------------------------*/
+
+#cont{  width:100%; height:85%; position: relative; padding:0; }
+
+#iframeblock{ width:90%; height:95%; background:#AAAAAA; margin:0 auto;}
+
+body#inframe { margin:10px; }
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------
+マージン
+------------------------------------------------------------*/
+.m0 { margin:0px; padding:0px; }
+.mt5 { margin:5px 0px 0px 0px; } 
+.mt10 { margin:10px 0px 0px 0px; }
+.mt15 { margin:15px 0px 0px 0px; }
+.mt20 { margin:20px 0px 0px 0px; }
+.mt30 { margin:30px 0px 0px 0px; }
+
+.mb5 { margin:0px 0px 5px 0px; }
+.mb10 { margin:0px 0px 10px 0px; }
+.mb15 { margin:0px 0px 15px 0px; }
+.mb20 { margin:0px 0px 20px 0px; }
+
+
+

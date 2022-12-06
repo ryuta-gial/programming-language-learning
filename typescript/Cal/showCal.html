@@ -1,0 +1,25 @@
+<html lang="ja"><head>
+	<meta charset="UTF-8">
+	<title>カレンダー</title>
+	<link rel="icon" href="https://nyanblog2222.com/wp-content/themes/blogtemplate/images/favicon.ico">
+	<link rel="stylesheet" href="cal.css">
+	<script src="cal.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- xxxx年xx月を表示 -->
+    <h1 id="header"></h1>
+
+    <!-- ボタンクリックで月移動 -->
+    <div id="next-prev-button">
+        <button id="prev" onclick="prev()">‹</button>
+        <button id="next" onclick="next()">›</button>
+    </div>
+
+    <!-- カレンダー -->
+    <div id="calendar"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+cargo:rustc-cfg=anyhow_no_ptr_addr_of

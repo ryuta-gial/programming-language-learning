@@ -1,0 +1,14 @@
+version: '3'
+services:
+    app:
+        build:
+            context: ./docker/construct_app      # Dockerfile保存場所
+            dockerfile: Dockerfile-app    # Dockerfileファイル名
+        container_name: sample-a
+        image: node-app                  # イメージ名
+        container_name: n-app         # コンテナ名
+        ports:                          # ポート接続
+            - 8882:8882
+        volumes:                        # mount workdir
+            - ./express:/src
+        command: [sh, -c, npm install && npm start]

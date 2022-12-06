@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+-->
+<script src="../../../js/jquery-1.9.1.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>テスト</title>
+
+</head>
+<style type="text/css">
+input[type="file"] {
+  display: none;
+}
+</style>
+<body>
+<div id="drag-area">
+  <p>アップロードするファイルをドロップ</p>
+  <p>または</p>
+  <div class="btn-group">
+    <input type="file" multiple="multiple">
+    <button id="btn">ファイルを選択</button>
+  </div>
+</div>
+<!---
+<form action="javascript:;">
+  <input type="text" id="status" value="" />
+  <input type="file" id="file" />
+  <input type="submit" id="update" value="送信" />
+</form>
+-->
+
+<script>
+if (window.File) {
+  // File APIに関する処理を記述
+  window.alert("File APIが実装されてます。");
+} else {
+  window.alert("本ブラウザではFile APIが使えません");
+}
+// Drop領域にドロップした際のファイルのプロパティ情報読み取り処理
+function onDrop(event) {
+  var files = event.dataTransfer.files;
+  var disp = document.getElementById("disp");
+  disp.innerHTML ="";
+
+  // ファイルの配列から1つずつファイルを選択
+  for (var i=0; i< files.length; i++) {
+    var f = files[i];
+    // （1）FileReaderオブジェクトの生成
+    var reader = new FileReader();
+
+    // （2）画像ファイルかテキスト・ファイルかを判定
+    if (!f.type.match('image.*') && !f.type.match('text.*')) {
+      alert("画像ファイルとテキスト・ファイル以外は表示できません。");
+      continue;
+    }
+
+    // （3）エラー発生時の処理
+    reader.onerror = function (evt) {
+      disp.innerHTML = "読み取り時にエラーが発生しました。";
+    }
+
+    // （4）画像ファイルの場合の処理
+    if (f.type.match('image.*')) {
+      // ファイル読取が完了した際に呼ばれる処理
+      reader.onload = function (evt) {
+        var li = document.createElement('li');
+        var img = document.createElement('img');
+        img.src = evt.target.result;
+        li.appendChild(img);
+        li.innerHTML += "<br />";
+        disp.appendChild(li);
+      }
+      // readAsDataURLメソッドでファイルの内容を取得
+      reader.readAsDataURL(f);
+    }
+
+    // （5）テキスト・ファイルの場合の処理
+    if (f.type.match('text.*')) {
+      // ファイル読取が完了した際に呼ばれる処理
+      reader.onload = function (evt) {
+        // FileReaderが取得したテキストをそのままdivタグに出力
+        disp.innerHTML = reader.result;
+      }
+      // readAsTextメソッドでファイルの内容を取得
+      reader.readAsText(f, 'shift-jis');
+    }
+  }
+// （6）ブラウザ上でファイルを展開する挙動を抑止
+event.preventDefault();
+}
+
+function onDragOver(event) {
+  // （6）ブラウザ上でファイルを展開する挙動を抑止
+  event.preventDefault();
+}
+</script>
+<section id="main">
+<p>ドラッグアンドドロップで1つから複数のファイルのプロパティを取得します。</p>
+<div id="drop" style="width:700px; height:150px; padding:10px; border:3px solid" ondragover="onDragOver(event)" ondrop="onDrop(event)"  >ここにドロップしたファイルのプロパティを読み込みます。</div>
+<p>ファイルプロパティ表示</p>
+<div id="disp" ></div>
+</section>
+<script>
+$(function(){
+  /*================================================
+    ファイルをドロップした時の処理
+  =================================================*/
+  $('#drag-area').bind('drop', function(e){
+    // デフォルトの挙動を停止
+    e.preventDefault();
+
+    // ファイル情報を取得
+    var files = e.originalEvent.dataTransfer.files;
+
+    uploadFiles(files);
+
+  }).bind('dragenter', function(){
+    // デフォルトの挙動を停止
+    return false;
+  }).bind('dragover', function(){
+    // デフォルトの挙動を停止
+    return false;
+  });
+
+  /*================================================
+    ダミーボタンを押した時の処理
+  =================================================*/
+  $('#btn').click(function() {
+    // ダミーボタンとinput[type="file"]を連動
+    $('input[type="file"]').click();
+  });
+
+  $('input[type="file"]').change(function(){
+    // ファイル情報を取得
+    var files = this.files;
+
+    uploadFiles(files);
+  });
+
+});
+
+/*================================================
+  アップロード処理
+=================================================*/
+function uploadFiles(files) {
+  // FormDataオブジェクトを用意
+  var fd = new FormData();
+
+  // ファイルの個数を取得
+  var filesLength = files.length;
+
+  // ファイル情報を追加
+  for (var i = 0; i < filesLength; i++) {
+    fd.append("files[]", files[i]);
+  }
+
+  // Ajaxでアップロード処理をするファイルへ内容渡す
+  $.ajax({
+    url: 'アップロード処理をするファイルのパス',
+    type: 'POST',
+    data: fd,
+    processData: false,
+    contentType: false,
+    success: function(data) {
+      console.log('ファイルがアップロードされました。');
+    }
+  });
+}
+</script>
+
+</body>
+</html>

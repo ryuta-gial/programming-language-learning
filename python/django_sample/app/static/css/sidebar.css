@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100;400&family=M+PLUS+1p:wght@400;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'M PLUS 1 Code', sans-serif;
+}
+
+.sidebar{
+    position: fixed;
+    left: -250px;
+    background: rgb(109, 68, 24);
+    width: 250px;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: rgb(110, 79, 44);
+    user-select: none;
+}
+
+.sidebar ul a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    color: white;
+    font-size: 20px;
+    padding-left: 20px;
+    border-top: 1px solid rgba(225,225,225,0.1);
+    border-bottom: 1px solid black;
+    transition: 0.4s;
+}
+
+ul li:hover a{
+    padding-left: 50px;
+}
+
+.sidebar ul a i{ 
+    margin-right: 16px;
+}
+
+/* トグルのcss */
+#check{
+    display: none;
+}
+
+label #hambargerBtn,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #b66f2d;
+    border-radius: 3px;
+}
+
+label #hambargerBtn{
+    left: 40px;
+    top: 25px;
+    font-size: 25px;
+    color: white;
+    padding: 6px 12px;
+    transition: all 0.5s;
+}
+
+label #cancel {
+    z-index :10;
+    left: -195px;
+    top: 17px;
+    font-size: 30px;
+    color:white;
+    padding: 4px 9px;
+    transition: all 0.5s;
+}
+
+#check:checked ~ .sidebar{
+    left: 0;
+}
+
+#check:checked ~ label #hambargerBtn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel{
+    left: 195px;
+}
+
+#check:checked ~ .bg{
+    margin-left: 250px;
+}
+
+.bg{
+    height: 100vh;
+    background-color: rgba(90, 163, 135,0.5);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s;
+}

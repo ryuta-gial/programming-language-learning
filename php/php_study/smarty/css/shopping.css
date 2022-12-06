@@ -1,0 +1,63 @@
+li
+{
+    list-style-type : none;
+}
+div#wrapper
+{
+    text-align : center;
+    width       :470px;
+    position   :relative;
+}
+div#wrapper div#category
+{
+    float : left;
+    width: 120px;
+    text-align :left;
+}
+div#wrapper div#item_list,
+div#wrapper div#item_detail
+{
+    width :330px;
+    text-align :left;
+    float : right;
+}
+div#wrapper div#item_list div.item ul
+{
+    overflow : hidden;
+    height     : auto;
+}
+div#wrapper div#item_list div .item .name
+{
+    font-size :16px;
+    font-weight :bold;
+}
+div#wrapper div#item_list div .item .price
+{
+    color : #900;
+}
+div#wrapper div#item_list div .item ul li.detail
+{
+    text-align : right;
+    font-weight : bold;
+    vertical-align : bottom;
+}
+div#wrapper div#item_list div .item .image
+{
+    padding : 0.4px;
+    text-align : left;
+}
+div#wrapper div#cart_list div .item
+{
+    text-align : right;
+    overflow : hidden;
+    height    : auto;
+}
+div#wrapper div#cart_list div .item .image
+{
+    float : left;
+}
+.red
+{
+    color : #f00;
+    font-size :12px;
+}

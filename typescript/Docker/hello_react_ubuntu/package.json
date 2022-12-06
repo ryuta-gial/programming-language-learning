@@ -1,0 +1,49 @@
+{
+    "name": "hello_rs_react",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "server": "nodemon src/server/server.js  --exec babel-node",
+        "client": "webpack-dev-server --config ./config/webpack.config.dev.js",
+        "client0": "webpack-dev-server --config ./config/webpack.config.js --open --mode development",
+        "build": "webpack --config ./webpack.config.js --mode development",
+        "build0": "webpack --config webpack.config.js",
+        "dev0": "concurrently \"npm run client0\" \"npm run server\"",
+        "dev": "NODE_ENV=development concurrently \"npm run client\" \"npm run server\"",
+        "start": "NODE_ENV=production npm run build && npm run server",
+        "start0": "webpack-dev-server --hot --inline --watch-content-base --content-base public/ --open-page index.html "
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/node": "^7.8.7",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-proposal-decorators": "^7.8.3",
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-react": "^7.9.4",
+        "babel-loader": "^8.1.0",
+        "concurrently": "^5.2.0",
+        "css-loader": "^3.5.3",
+        "html-webpack-plugin": "^4.3.0",
+        "nodemon": "^2.0.3",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-merge": "^4.2.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "core-js": "^3.6.5",
+        "express": "^4.17.1",
+        "pg": "^8.2.1",
+        "react-router-dom": "^5.2.0"
+    }
+}

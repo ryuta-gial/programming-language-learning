@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>ASCII.jp － Web Professional（ウェブ・プロフェッショナル）</title>
+        <link>http://ascii.jp/cate/161/</link>
+        <pubDate>Sun, 23 Aug 2009 10:08:43 +0900</pubDate>
+        <item>
+            <title>ママチャリ屋が高級店に　Web展開でトップギア </title>
+            <pubDate>Fri, 21 Aug 2009 11:00:00 +0900</pubDate>
+            <link>http://ascii.jp/elem/000/000/451/451782/summary.html</link>
+            <description><![CDATA[今から12年前、(中略)その舞台裏を追った。]]></description>
+        </item>
+        <item>
+            <title>入門Ext JS：グリッドパネルの使い方をマスター </title>
+            <pubDate>Thu, 20 Aug 2009 14:00:00 +0900</pubDate>
+            <link>http://ascii.jp/elem/000/000/450/450711/summary.html</link>
+            <description><![CDATA[JavaScript(中略)を紹介する。]]></description>
+        </item>
+        <item>
+            <title>サーバー不要！Yahoo! PipesでXML→JSONPに変換 </title>
+            <pubDate>Wed, 22 Jul 2009 23:07:25 +0900</pubDate>
+            <link>http://ascii.jp/elem/000/000/438/438132/summary.html</link>
+            <description><![CDATA[XMLをJSONPに(中略)作れる。]]></description>
+        </item>
+    </channel>
+</rss>
+

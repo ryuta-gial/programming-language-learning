@@ -1,0 +1,15 @@
+{
+    "singleQuote": true,
+    "printWidth": 80,
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    //アロー関数の()が省略可能でも常に書く
+    "arrowParens": "always",
+    //改行の文字コードをLinux、MacOS、gitリポジトリで一般的な、ラインフィード(\n)のみ
+    "endOfLine": "lf",
+    //markdownの折返しの設定そのまま折り返す(デフォルト)
+    "proseWrap": "preserve",
+    ////複数行のJSX要素の「>」を最後の行の最後に配置する
+    "jsxBracketSameLine": false
+}

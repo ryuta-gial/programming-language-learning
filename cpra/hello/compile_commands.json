@@ -1,0 +1,14 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-o",
+            "hello",
+            "hello.cpp"
+        ],
+        "directory": "/Users/shimizu/Dropbox/world/enjoy/cpra/hello",
+        "file": "hello.cpp"
+    }
+]

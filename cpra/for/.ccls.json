@@ -1,0 +1,16 @@
+-isystem
+/usr/local/include
+-isystem
+ /usr/local/Cellar/gcc/10.2.0/lib/gcc/10/gcc/x86_64-apple-darwin19/10.2.0/../../../../../../include/c++/10.2.0
+ -isystem
+ /usr/local/Cellar/gcc/10.2.0/lib/gcc/10/gcc/x86_64-apple-darwin19/10.2.0/../../../../../../include/c++/10.2.0/x86_64-apple-darwin19
+ -isystem
+ /usr/local/Cellar/gcc/10.2.0/lib/gcc/10/gcc/x86_64-apple-darwin19/10.2.0/../../../../../../include/c++/10.2.0/backward
+ -isystem
+ /usr/local/Cellar/gcc/10.2.0/lib/gcc/10/gcc/x86_64-apple-darwin19/10.2.0/include
+ -isystem
+ /usr/local/Cellar/gcc/10.2.0/lib/gcc/10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed
+-isystem
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ -isystem
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks

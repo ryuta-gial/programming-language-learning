@@ -1,0 +1,45 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+<div class="bg">
+    <h1 class="space">単語検索窓</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="formpost">
+            {% render_field form.before class="form-control" placeholder="単語を入力"%}
+        </div>
+        <button class="btn btn-warning" type="submit">検索する</button>
+    </form>
+    <div>  
+        <div class="accordion .collapse space" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    単語リストを開く
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <img src="{% static 'img/word.jpg'%}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if post_data %}
+        {% for post in post_data %}
+        <div class="container">
+            <div class="row littlespace">
+                <div class="col con">
+                    <h3 class="word">{{post.before}}</h3>
+                </div>
+                <div class="col con">
+                    <h3 class="word">{{post.after}}</h3>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-o",
+            "moji",
+            "moji.cpp"
+        ],
+        "directory": "/Users/shimizu/Dropbox/world/enjoy/11cpra/atc/showMoji",
+        "file": "moji.cpp"
+    }
+]

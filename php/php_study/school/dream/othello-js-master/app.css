@@ -1,0 +1,94 @@
+#main.container
+{
+  text-align: center;
+}
+
+.disabled
+{
+  opacity: 0.5;
+}
+
+#message
+{
+  margin-top: 1em;
+}
+
+#preference-pane
+{
+  margin-top: 2em;
+}
+
+#player-type-forms
+{
+  display: inline-block;
+}
+#black-player-level,
+#white-player-level
+{
+  width: auto;
+}
+#swap-player-types-button
+{
+  position: relative;
+  top: -2em;
+}
+
+#add-new-ai-button
+{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+#game-board > table
+{
+  margin: 0 auto;
+}
+
+#game-board > table th
+{
+  margin: 0;
+  padding: 0.125em 0.25em;
+  line-height: 100%;
+}
+
+#game-board > table .cell
+{
+  background: #090;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+#game-board > table .cell.attackable
+{
+  cursor: pointer;
+}
+#game-board > table .cell.attackable:hover
+{
+  background: #cc0;
+}
+
+#game-board > table .cell > .disc
+{
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-radius: 1em;
+  margin: 0.25em;
+}
+#game-board > table .cell.white > .disc
+{
+  background: #fff;
+}
+#game-board > table .cell.black > .disc
+{
+  background: #000;
+}
+#game-board > table .cell.attackable > .disc
+{
+  opacity: 0.2;
+}
+#game-board > table .cell.attackable:hover > .disc
+{
+  opacity: 1.0;
+}

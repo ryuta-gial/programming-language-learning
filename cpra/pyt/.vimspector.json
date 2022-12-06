@@ -1,0 +1,40 @@
+{
+  "configurations": {
+    "Cpp_Launch": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "request": "launch",
+        "program": "$HOME/rust/projects/${projectName}/target/debug/${projectName}",
+        "args": [],
+        "cwd": "$HOME/rust/projects/${projectName}",
+        "environment": [],
+        "externalConsole": true,
+        "MIMode": "gdb"
+      }
+    },
+    "Python_Launch": {
+      "adapter": "debugpy",
+      "configuration": {
+        "name": "Python_Launch",
+        "type": "python",
+        "request": "launch",
+        "cwd": "${fileDirname}",
+        "python": "python3",
+        "stopOnEntry": true,
+        "console": "externalTerminal",
+        "debugOptions": [],
+        "program": "${file}"
+      }
+    },
+    "Go_Launch": {
+      "adapter": "vscode-go",
+      "configuration": {
+        "request": "launch",
+        "program": "${fileDirname}",
+        "mode": "debug",
+        "dlvToolPath": "$HOME/go/bin/dlv"
+      }
+    }
+
+  }
+}

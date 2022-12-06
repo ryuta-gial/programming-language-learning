@@ -1,0 +1,5 @@
+Django~=2.2.10
+django-widget-tweaks~=1.4.8
+django-allauth~=0.41.0
+pandas==1.4.1
+whitenoise==6.0.0

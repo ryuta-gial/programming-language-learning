@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/local/Cellar/gcc/10.2.0_3/bin/g++-10",
+      "-c",
+      "-Wall",
+      "for.cpp",
+      "-o",
+      "for"
+    ],
+    "directory": "/Users/shimizu/Dropbox/world/enjoycode/000cpra/atc/showFor",
+    "file": "/Users/shimizu/Dropbox/world/enjoycode/000cpra/atc/showFor/for.cpp",
+    "output": "/Users/shimizu/Dropbox/world/enjoycode/000cpra/atc/showFor/for.o"
+  }
+]

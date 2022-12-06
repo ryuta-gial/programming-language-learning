@@ -1,0 +1,20 @@
+FROM ubuntu:eoan-20200410
+
+# 環境変数設定
+ENV NODE_ENV="development"
+
+# 作業ディレクトリ作成&設定
+WORKDIR /src
+
+## install util
+RUN apt-get update \
+ && apt-get install -y \
+    sudo \
+    curl \
+    git \
+    vim \
+    node.js \
+        npm \
+ && sudo npm install n -g \
+ && sudo n stable \
+ && sudo apt purge -y nodejs npm \
